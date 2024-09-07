@@ -47,7 +47,8 @@ def main():
   [Circle(0.5,0.5,0.5), Circle(1.5,1.5,1.1), Circle(0.7,0.7,0.4), Circle(4,4,0.7)],
   [Circle(2,2,5), Circle(2,2,3)],
   [Circle(3,1,4), Circle(2,4,0.9), Circle(2,1.5,5)],
-  [Circle(1,1,1), Circle(3,1,1), Circle(5,1,1), Circle(7,1,1)]
+  [Circle(1,1,1), Circle(3,1,1), Circle(5,1,1), Circle(7,1,1)],
+  [Circle(1,1,1), Circle(0.5,1,0.5)]
   ]
 
 
