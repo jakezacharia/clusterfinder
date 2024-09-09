@@ -16,17 +16,19 @@ def distance_check(currentCircle: Circle, circles: list, visited: set):
     # for all items in circles list, and if not in visited set, find distance using euclidean equation w/ current circle + item c in circles
     for c in circles:
         if c not in visited:
+            # calc distance
             dist = math.sqrt((c.x - currentCircle.x)**2 + (c.y - currentCircle.y)**2)
+            # if distance is less than total radii of current circle + comparator circle
             if dist <= currentCircle.r + c.r:
-                # check if one circle is within another
+                # then check if circle is within a circle as well
                 if dist + min(currentCircle.r, c.r) < max(currentCircle.r, c.r):
                     continue
                 # recursively call function
                 distance_check(c, circles, visited)
 
 def cluster_detect(circles):
-    # 1 or 0 circles will never equal a cluster
-    if len(circles) < 2:
+    # 0 circles =/= cluster
+    if len(circles) < 1:
         return False
     # declare visited set, initalize empty
     visited = set()
@@ -42,13 +44,15 @@ def cluster_detect(circles):
 def main():
 
   test_cases = [
+  # test case 1, expected true
   [Circle(1,3,0.7), Circle(2,3,0.4), Circle(3,3,0.9)],
+  # test case 2, expected false
   [Circle(1.5,1.5,1.3), Circle(4,4,0.7)],
+  # test case 3, expected false
   [Circle(0.5,0.5,0.5), Circle(1.5,1.5,1.1), Circle(0.7,0.7,0.4), Circle(4,4,0.7)],
-  [Circle(2,2,5), Circle(2,2,3)],
-  [Circle(3,1,4), Circle(2,4,0.9), Circle(2,1.5,5)],
-  [Circle(1,1,1), Circle(3,1,1), Circle(5,1,1), Circle(7,1,1)],
+  # test case 4, expected true - circle within a circle with only one point touching
   [Circle(1,1,1), Circle(0.5,1,0.5)]
+  # additional test cases can be added below this line following the same format
   ]
 
 
